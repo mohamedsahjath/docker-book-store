@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,118 +10,145 @@
 
 <body>
 
+<header class="header">
+    <div class="logo">📚 Book Store</div>
+    <p>Manage your books and customers easily</p>
+</header>
+
 <div class="container">
 
-    <h1>?? Book Store</h1>
+    <!-- BOOK SECTION -->
+    <section>
+        <div class="section-title">
+            <h1>📖 Book Management</h1>
+            <p>Add, view, find and delete books</p>
+        </div>
 
-    <!-- BOOKS -->
+        <div class="grid">
 
-    <div class="card">
+            <div class="card">
+                <div class="icon">➕</div>
+                <h2>Add Book</h2>
+                <p class="description">Add a new book to the store</p>
 
-        <h2>Add Book</h2>
+                <input type="text" id="title" placeholder="Book Title">
+                <input type="text" id="author" placeholder="Author">
+                <input type="number" id="price" placeholder="Price">
 
-        <input type="text" id="title" placeholder="Book Title">
-        <input type="text" id="author" placeholder="Author">
-        <input type="number" id="price" placeholder="Price">
+                <button onclick="addBook()">Add Book</button>
+            </div>
 
-        <button onclick="addBook()">Add Book</button>
+            <div class="card">
+                <div class="icon">📚</div>
+                <h2>Books</h2>
+                <p class="description">View all available books</p>
 
-    </div>
+                <button onclick="getBooks()">View Books</button>
 
+                <div id="bookList"></div>
+            </div>
 
-    <div class="card">
+            <div class="card">
+                <div class="icon">🔎</div>
+                <h2>Find Book</h2>
+                <p class="description">Search for a book using its ID</p>
 
-        <h2>Books</h2>
+                <input type="text" id="bookId" placeholder="Enter Book ID">
 
-        <button onclick="getBooks()">View Books</button>
+                <button onclick="getBookById()">Find Book</button>
 
-        <div id="bookList"></div>
+                <div id="singleBook"></div>
+            </div>
 
-    </div>
+            <div class="card danger-card">
+                <div class="icon">🗑️</div>
+                <h2>Delete Book</h2>
+                <p class="description">Remove a book from the store</p>
 
+                <input type="text" id="deleteBookId" placeholder="Enter Book ID">
 
-    <div class="card">
+                <button class="delete-btn" onclick="deleteBook()">
+                    Delete Book
+                </button>
 
-        <h2>Find Book by ID</h2>
+                <p id="deleteMessage"></p>
+            </div>
 
-        <input type="text" id="bookId" placeholder="Enter Book ID">
-
-        <button onclick="getBookById()">Find Book</button>
-
-        <div id="singleBook"></div>
-
-    </div>
-
-
-    <div class="card">
-
-        <h2>Delete Book</h2>
-
-        <input type="text" id="deleteBookId" placeholder="Enter Book ID">
-
-        <button class="delete-btn" onclick="deleteBook()">Delete Book</button>
-
-        <p id="deleteMessage"></p>
-
-    </div>
-
-
-    <!-- CUSTOMERS -->
-
-    <div class="card">
-
-        <h2>Add Customer</h2>
-
-        <input type="text" id="customerName" placeholder="Name">
-
-        <input type="email" id="customerEmail" placeholder="Email">
-
-        <input type="text" id="customerPhone" placeholder="Phone">
-
-        <button onclick="addCustomer()">Add Customer</button>
-
-    </div>
+        </div>
+    </section>
 
 
-    <div class="card">
+    <!-- CUSTOMER SECTION -->
+    <section>
 
-        <h2>Customers</h2>
+        <div class="section-title">
+            <h1>👤 Customer Management</h1>
+            <p>Manage your store customers</p>
+        </div>
 
-        <button onclick="getCustomers()">View Customers</button>
+        <div class="grid">
 
-        <div id="customerList"></div>
+            <div class="card">
+                <div class="icon">👤</div>
+                <h2>Add Customer</h2>
+                <p class="description">Register a new customer</p>
 
-    </div>
+                <input type="text" id="customerName" placeholder="Customer Name">
+                <input type="email" id="customerEmail" placeholder="Email Address">
+                <input type="text" id="customerPhone" placeholder="Phone Number">
 
+                <button onclick="addCustomer()">Add Customer</button>
+            </div>
 
-    <div class="card">
+            <div class="card">
+                <div class="icon">👥</div>
+                <h2>Customers</h2>
+                <p class="description">View all registered customers</p>
 
-        <h2>Find Customer by ID</h2>
+                <button onclick="getCustomers()">View Customers</button>
 
-        <input type="text" id="customerId" placeholder="Enter Customer ID">
+                <div id="customerList"></div>
+            </div>
 
-        <button onclick="getCustomerById()">Find Customer</button>
+            <div class="card">
+                <div class="icon">🔎</div>
+                <h2>Find Customer</h2>
+                <p class="description">Search customer using their ID</p>
 
-        <div id="singleCustomer"></div>
+                <input type="text" id="customerId" placeholder="Enter Customer ID">
 
-    </div>
+                <button onclick="getCustomerById()">Find Customer</button>
 
+                <div id="singleCustomer"></div>
+            </div>
 
-    <div class="card">
+            <div class="card danger-card">
+                <div class="icon">🗑️</div>
+                <h2>Delete Customer</h2>
+                <p class="description">Remove a customer</p>
 
-        <h2>Delete Customer</h2>
+                <input type="text" id="deleteCustomerId" placeholder="Enter Customer ID">
 
-        <input type="text" id="deleteCustomerId" placeholder="Enter Customer ID">
+                <button class="delete-btn" onclick="deleteCustomer()">
+                    Delete Customer
+                </button>
 
-        <button class="delete-btn" onclick="deleteCustomer()">Delete Customer</button>
+                <p id="customerDeleteMessage"></p>
+            </div>
 
-        <p id="customerDeleteMessage"></p>
+        </div>
 
-    </div>
+    </section>
 
 </div>
 
+<footer>
+    <p>📚 Book Store Microservices</p>
+    <span>Powered by Spring Boot & Docker</span>
+</footer>
+
 <script src="script.js"></script>
 
-</body>
+<ody>
 </html>
+```
