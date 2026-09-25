@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>?? Book Store</h1>
+
+    <!-- BOOKS -->
+
+    <div class="card">
+
+        <h2>Add Book</h2>
+
+        <input type="text" id="title" placeholder="Book Title">
+        <input type="text" id="author" placeholder="Author">
+        <input type="number" id="price" placeholder="Price">
+
+        <button onclick="addBook()">Add Book</button>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Books</h2>
+
+        <button onclick="getBooks()">View Books</button>
+
+        <div id="bookList"></div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Find Book by ID</h2>
+
+        <input type="text" id="bookId" placeholder="Enter Book ID">
+
+        <button onclick="getBookById()">Find Book</button>
+
+        <div id="singleBook"></div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Delete Book</h2>
+
+        <input type="text" id="deleteBookId" placeholder="Enter Book ID">
+
+        <button class="delete-btn" onclick="deleteBook()">Delete Book</button>
+
+        <p id="deleteMessage"></p>
+
+    </div>
+
+
+    <!-- CUSTOMERS -->
+
+    <div class="card">
+
+        <h2>Add Customer</h2>
+
+        <input type="text" id="customerName" placeholder="Name">
+
+        <input type="email" id="customerEmail" placeholder="Email">
+
+        <input type="text" id="customerPhone" placeholder="Phone">
+
+        <button onclick="addCustomer()">Add Customer</button>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Customers</h2>
+
+        <button onclick="getCustomers()">View Customers</button>
+
+        <div id="customerList"></div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Find Customer by ID</h2>
+
+        <input type="text" id="customerId" placeholder="Enter Customer ID">
+
+        <button onclick="getCustomerById()">Find Customer</button>
+
+        <div id="singleCustomer"></div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Delete Customer</h2>
+
+        <input type="text" id="deleteCustomerId" placeholder="Enter Customer ID">
+
+        <button class="delete-btn" onclick="deleteCustomer()">Delete Customer</button>
+
+        <p id="customerDeleteMessage"></p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

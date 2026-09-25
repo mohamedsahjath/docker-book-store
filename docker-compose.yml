@@ -1,0 +1,35 @@
+services:
+
+  mongodb:
+    image: mongo:8
+    container_name: bookstore-mongodb
+    volumes:
+      - mongo-data:/data/db
+
+  book-api:
+    build: ./book-api
+    container_name: book-api
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb
+
+  customer-api:
+    build: ./customer-api
+    container_name: customer-api
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mongodb
+
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - book-api
+      - customer-api
+
+volumes:
+  mongo-data:
